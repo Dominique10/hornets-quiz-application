@@ -23,7 +23,18 @@
  	background-color:teal;
  	text-align: center;
  	border-style: solid;
-
+ }
+ #userName{
+ 	/*background-image:url('../img/form_bg.jpg');*/
+	/*background-repeat:repeat-x;*/
+	border:3px solid #FF0000;
+	width: 230px;
+	color:#333333;
+	padding:3px;
+	margin-right:4px;
+	margin-bottom:8px;
+	font-family:tahoma, arial, sans-serif;
+	box-shadow: 0px 3px 20px #FFFFFF;
  }
  content{
  	background-color: purple;
@@ -37,10 +48,7 @@ h1,h2 {
   border-color: black;
   background-color: teal;
   border-radius: 2rem;
-  display: none;
-}
-.triviaQuestion.active {
-	display: block;
+  display: block;
 	font-family: cursive;
 	font-size: 2rem;
 }
@@ -64,7 +72,7 @@ span.circle {
  .ci.player{
  	text-align:right;
  }
- #questions{
+ #questions, #playerName{
  	font-family: 'Raleway', sans-serif;
  	/* padding-right: 11rem; */
  	/* display: block; */
