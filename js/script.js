@@ -9,7 +9,7 @@ var count;
 var correctAnswer;
 var trivia=[
 	{
-		question:"What is Dell Curry's first name?",
+		question:"1. What is Dell Curry's first name?",
 		answer:"Wardell",
 		choices: [
 			'Wardell',
@@ -19,43 +19,43 @@ var trivia=[
 		]
 	 },
 	 {
-	 	question:"2Who is the franchise leading scorer?",
-	 	answer:"2Wardell",
+	 	question:"2. Who is the franchise leading scorer?",
+	 	answer:"Dell Curry",
 	 	choices: [
-	 		'2Wardell',
-	 		'2Kemba',
-	 		'2Mugsy',
-	 		'2Alonzo'
+	 		'Glen Rice',
+	 		'Gerald Wallace',
+	 		'Dell Curry',
+	 		'Larry Johnson'
 	 	]
 	 },
 	 {
-	 	question:"3Who is the franchise leading scorer?",
-	 	answer:"3Wardell",
+	 	question:"3. Who is Grandmama?",
+	 	answer:"Larry Johnson",
 	 	choices: [
-	 		'Wardell',
-	 		'Kemba',
-	 		'Mugsy',
-	 		'Alonzo'
+	 		'Larry Johnson',
+	 		'Mugsy Bogues',
+	 		'David Wesley',
+	 		'Bobby Phills'
 	 	]
 	 },
 	 {
-	 	question:"4Who is the franchise leading scorer?",
-	 	answer:"4Wardell",
+	 	question:"4. Who is the only retired Jersey in franchise history?",
+	 	answer:"Bobby Phills",
 	 	choices: [
-	 		'Wardell',
-	 		'Kemba',
-	 		'Mugsy',
-	 		'Alonzo'
+	 		'Gerald Wallace',
+	 		'Bobby Phills',
+	 		'	Stephen Jackson',
+	 		'Michael Jordan'
 	 	]
 	 },
 	 {
-	 	question:"5Who is the franchise leading scorer?",
-	 	answer:"5Wardell",
+	 	question:"Founding Year of the Charlotte Hornets?",
+	 	answer:"1996",
 	 	choices: [
-	 		'Wardell',
-	 		'Kemba',
-	 		'Mugsy',
-	 		'Alonzo'
+	 		'1992',
+	 		'1988',
+	 		'1996',
+	 		'2001'
 	 	]
 	 }
 ]
@@ -87,7 +87,7 @@ $(document).ready(function(){
 function userName(){
 	var nameOfUser = $('#userName').val();
 	console.log("Name of Current Player is: " + nameOfUser);
-	$("#playerName").text(nameOfUser);
+	$("#playerName").text("Player Name: "+ nameOfUser);
 }
 
  // checkAnswer function
@@ -116,6 +116,9 @@ function userName(){
  count=0;
  correctAnswer=0;
  questionNumber=2;
+ $("#userName").text("");
+ $("#result").css("display","none");
+
  	//User enters name
  //Question
  	//Display first question and answer choices
@@ -165,17 +168,51 @@ function userName(){
   console.log( $(this).text());
   //CheckAnswer
  if ($(this).text()==trivia[count].answer) {
-   	$("span.circle").text(questionNumber + "/5");
+   	$("span.circle").text(questionNumber);
    	correctAnswer++;
    	console.log("User has " + correctAnswer +" Correct Answers");
+   	$(".triviaQuestion").text("Correct Answer").animate({height: "20px"}, 500);
+   	$(".triviaQuestion").css("color", "white").animate({height: "20px"}, 500);
+   	$(".triviaQuestion").css("background","none");
+   	$(".triviaQuestion").css("background-color","green");
+   	$("#result").text("Correct Answers: "+correctAnswer+"/5");
+   	$("#result").css("display","block");
+   	$(".answer li").remove();
    }
    else{
-  	$("span.circle").text(questionNumber + "/5");
+  	$("span.circle").text(questionNumber);
   	console.log("User has " + correctAnswer +" Correct Answers");
+  	$(".triviaQuestion").text("Wrong Answer").animate({height: "20px"}, 500);
+   	$(".triviaQuestion").css("color", "white").animate({height: "20px"}, 500);
+   	$(".triviaQuestion").css("background","none");
+   	$(".triviaQuestion").css("background-color","red");
+   	$("#result").text("Correct Answers: "+correctAnswer+"/5");
+   	$("#result").css("display","block");
+   	
    }
    count++;
    questionNumber++;
-   playGame();
+   if (questionNumber==6) {setTimeout(function(){
+   	$("#newGameButton").css("display", "block");
+   	$(".triviaQuestion").css("display", "none");
+   	},2500);
+
+   	$("#newGameButton").click(function(){
+   		$("#intro").css("display","block");
+   		$(".triviaQuestion").removeAttr('style');
+   		$("#newGameButton").removeAttr('style');
+   		$(".answer li").remove();
+   		newGame();
+
+   	});
+   }
+   else {setTimeout(function(){
+    //do what you need here
+    $(".triviaQuestion").removeAttr('style');
+    playGame();
+		}, 2500);
+ 		}
+   
  });
  }
 

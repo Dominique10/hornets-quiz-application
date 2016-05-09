@@ -1,132 +1,173 @@
-/*
- * Hello!
- * Here is how you would write responsive styles if you chose NOT to use a grid system.
- * If you'd like to use a grid system I'd recommend using one of the following: 
- * 1. http://getskeleton.com/
- * 2. http://neat.bourbon.io/ 
- * 3. http://susy.oddbird.net/
- * When you are writing these styles, remember to write all of your base/mobile styles
- * first.
- * Then write your styles for your next larger "breakpoint" (screen width).
- * Then write your styles for your largest "breakpoint".
- * You can have as many breakpoints defined as you like - most developers use 3 or 4 that correspond with comminly used device-widths that they plan to support.
- * Use the internet as a resource when you need information!
- * See notes below. ***
- */
- body{
+body{
   background-color:grey;
   color:white;
   margin: 0;
   background-image: url("../img/img.jpg");
  }
  header{
- 	background-color:teal;
- 	text-align: center;
- 	border-style: solid;
+  background: linear-gradient(to bottom, #008080 5%, #408c99 100%);
+  text-align: center;
+  border-style: solid;
+  padding-bottom: 1rem;
  }
  #userName{
- 	/*background-image:url('../img/form_bg.jpg');*/
-	/*background-repeat:repeat-x;*/
-	border:3px solid #FF0000;
-	width: 230px;
-	color:#333333;
-	padding:3px;
-	margin-right:4px;
-	margin-bottom:8px;
-	font-family:tahoma, arial, sans-serif;
-	box-shadow: 0px 3px 20px #FFFFFF;
+  border:3px solid #FFFFFF;
+  width: 230px;
+  color:#333333;
+  padding:3px;
+  margin-right:4px;
+  margin-bottom:8px;
+  font-family:tahoma, arial, sans-serif;
+  box-shadow: 0px 3px 20px #FFFFFF;
  }
  content{
- 	background-color: purple;
+  background-color: purple;
  }
 h1,h2 {
-  font-family: cursive;
+  font-family: sans-serif;
+  font-size: 3rem;
+  margin: 0;
 }
  .triviaQuestion{
   border-style: solid;
   padding: 2rem;
   border-color: black;
-  background-color: teal;
+  background: linear-gradient(to bottom, #008080 5%, #408c99 100%);
   border-radius: 2rem;
   display: block;
-	font-family: cursive;
-	font-size: 2rem;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  text-align: center;
 }
-.circle{
- 	border-style: outset;
- 	border-radius: 50%;
- 	padding: 1rem;
- 	border-width: thick;
- 	text-align: center;
- 	line-height: 5rem;
- 	border-color: #A900FF #008080;
- 	background-color: rgba(255, 255, 255, 0.14);
+#newGameButton{
+  border-style: solid;
+  padding: 2rem;
+  border-color: black;
+  background-color: teal;
+  border-radius: 2rem;
+  display: none;
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #008080 5%, #408c99 100%);
+  text-align: center;
+}
+.circle,.circle2{
+  border-style: outset;
+  border-radius: 50%;
+  padding: 1rem;
+  border-width: thick;
+  text-align: center;
+  line-height: 5rem;
+  border-color: #A900FF #008080;
+  font-size: 3rem;
+  background-color: rgb(36, 24, 72);
   color: white;
  }
 
-span.circle {
+span.circle, .circle2 {
     padding: 1.6rem;
-    /* height: 19rem; */
     margin: 1.5rem;
 }
  .ci.player{
- 	text-align:right;
+  text-align:right;
  }
  #questions, #playerName{
- 	font-family: 'Raleway', sans-serif;
- 	/* padding-right: 11rem; */
- 	/* display: block; */
- 	/* float: right; */
- 	clear: both;
- 	margin: 1rem;
+  font-family: 'Raleway', sans-serif;
+  display: block;
+  margin: 2rem;
  }
- ul{
- 	list-style: none;
- 	/* clear: both; */
+ ul,ol{
+  list-style: none;
+  padding-left:0;
+  margin: 0;
+
  }
-/*li {
-  margin: 0.5em;
-}
- l{
- 	list-style: ;
- }*/
+
 .answer li {
-  /* text-align: center; */
-  /* float: left; */
-  margin: 0.5em;
-  background-color: black;
+  list-style-type: none;
   border-style: solid;
-  padding: 1rem;
-  margin: 1rem;
+    border-style: solid;
+    padding: 1rem;
+    margin: 1rem;
+    -moz-box-shadow: inset 0px 1px 0px 0px #276873;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #276873;
+    box-shadow: inset 0px 1px 0px 0px #276873;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #599bb3), color-stop(1, #408c99));
+    background: -moz-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background: -webkit-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background: -o-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background: -ms-linear-gradient(top, #599bb3 5%, #408c99 100%);
+    background: linear-gradient(to bottom, #008080 5%, #408c99 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#599bb3', endColorstr='#408c99',GradientType=0);
+    background-color: #599bb3;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #29668f;
+    /* display: inline-block; */
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 1.5rem;
+    padding: 5px 57px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #3d768a;
+    text-align: center;
 }
-.answer li:hover{
-	background-color:orange;
+.answer li:hover {
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #408c99), color-stop(1, #599bb3));
+  background:-moz-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:-webkit-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:-o-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:-ms-linear-gradient(top, #408c99 5%, #599bb3 100%);
+  background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#408c99', endColorstr='#599bb3',GradientType=0);
+  background-color:#408c99;
+}
+.answer li:active {
+  position:relative;
+  top:1px;
 }
 #intro {
-  opacity:    0.9; 
-  background: #000; 
-  width:      100%;
-  height:     100%; 
-  z-index:    10;
-  top:        0; 
-  left:       0; 
-  position:   fixed; 
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+#introBackground{
+  background-color: #00A2A2;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  color: black;
 }
 #startButton{
-	  width: 8rem;
+    width: 8rem;
     border-radius: 1rem;
     height: 3rem;
     background-color: aqua;
-    color: white;
+    color: black;
     font-size: 2rem;
 }
+#result{
+  display: none;
+  font-size: 1rem
+}
 @media (min-width: 500px){
-	header{
-		font-size:2rem;
-	}
-	.buttonClass{
-	  font-size: 2rem;
-	}
+  header{
+    font-size:2rem;
+  }
+  .buttonClass{
+    font-size: 2rem;
+  }
 }
 
  @media (min-width: 700px){
@@ -138,129 +179,50 @@ body{
     margin: .5rem;
 }
 .circle{
- 	border-style: dashed;
+  border-style: dashed;
   border-radius: 50%;
- 	/*height: 5rem;
-  width: 5rem;*/
   text-align: center;
   line-height: 5rem;
   border-color: #A900FF #008080;
  }
-
-}
-
-@media (min-width: 1024px){
-  body{background-color:blue;
+ .triviaQuestion {
+  font-size: 2rem;
   }
-}
-.content{
-  text-align: center;
+  #result{
+  font-size: 2rem
 }
 
-.example-style1 {
- /*
-  * Styles for mobile size and larger
-  * These are your base styles
-  * Write these styles first
-  */
-  color: black;
-  background-color: #D3D3D3;
-  font-size: 15px;
 }
-@media (min-width: 700px) {
-  .example-style1 {
-    /*
-     * Styles for tablet size and larger here.
-     * Here is where you would overwrite any base styles that you want to change 
-     * for this breakpoint.
-     * Base styles are inherited here so no need to repeat formerly defined base 
-     * properties that will remain unchanged.
-     * Write these styles 2nd.
-     */
-     color: white;
-     background-color: black;
-     font-size: 25px;
-  }
-}
+
+
 @media (min-width: 1024px) {
-  .example-style1 {
-    /*
-     * Styles for desktop size and larger here.
-     * Here is where you would overwrite your base and tablet-size styles
-     * that you want to change for this breakpoint.
-     * Base styles and your 700px breakpoint styles (your tablet styles) are inherited
-     * here so no need to repeat formerly defined properties that will remain unchanged.
-     * Write these styles 3rd.
-     */
-     color: green;
-     background-color: purple;
-     font-size: 35px;
-  }
-}
-
-
-.example-style2 {
- /*
-  * Styles for mobile size and larger
-  * These are your base styles
-  * Write these styles first
-  */
-  color: black;
-  font-size: 15px;
-}
-
-.list li{
+ .list li{
   list-style: none;
   display: inline-block;
   padding: .5rem;
   background: grey;
 
 }
-@media (min-width: 700px) {
-  .example-style2 {
-    /*
-     * Styles for tablet size and larger here.
-     * Here is where you would overwrite any base styles that you want to change 
-     * for this breakpoint.
-     * Base styles are inherited here so no need to repeat formerly defined base 
-     * properties that will remain unchanged.
-     * Write these styles 2nd.
-     */
-  }
+.content{
+  text-align: center;
 }
-  @media (min-width: 700px){.list li{
+
+}
+  @media (min-width: 700px){
+  .list li{
   list-style: none;
   display: inline-block;
   padding: 2.5rem;
   background: black;
   color: white;
   text-align: center;
-
 }
+.answer li{
+  font-size: 2rem;
 }
-@media (min-width: 1024px) {
-  .example-style2 {
-    /*
-     * Styles for desktop size and larger here.
-     * Here is where you would overwrite your base and tablet-size styles
-     * that you want to change for this breakpoint.
-     * Base styles and your 700px breakpoint styles (your tablet styles) are inherited
-     * here so no need to repeat formerly defined properties that will remain unchanged.
-     * Write these styles 3rd.
-     */
-  } 
 }
 @media (min-width: 1024px) {
   .list li {
-    /*
-     * Styles for desktop size and larger here.
-     * Here is where you would overwrite your base and tablet-size styles
-     * that you want to change for this breakpoint.
-     * Base styles and your 700px breakpoint styles (your tablet styles) are inherited
-     * here so no need to repeat formerly defined properties that will remain unchanged.
-     * Write these styles 3rd.
-     */
-
   list-style: none;
   display: inline-block;
   padding: 5rem;

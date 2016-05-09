@@ -10,46 +10,41 @@
 <body>
 <header>
 <div id="intro">
-	<h1>Welcome to the Hornets Trivia Quiz</h1>
-	<h2>Click the button to start Hornets Trivia</h2>
-
-	<form action="post" class="myForm">
-		<input id="userName" placeholder="Enter User Name" required>
-		<input type="submit"value="Submit" id="startButton"></input>
-	</form>
-</div>
-<div>
-	<h1 id="Result">Correct Answer</h1>
+	<div id="introBackground">
+		<h1>Welcome to the Hornets Trivia Quiz</h1>
+		<h2>Click the button to start Hornets Trivia</h2>
+		<form action="post" class="myForm">
+			<input id="userName" placeholder="Enter User Name" required>
+			<input type="submit"value="Start" id="startButton"></input>
+		</form>
+	</div>
 </div>
 	<div>
-		<h1>Charlotte Hornets</h1>
-		<h2>Quiz Application</h2>
+		<h1>Charlotte Hornets Quiz</h1>
+		<ul>
+		<li>
+			<label id="questions">Question Number:</label>
+			<span class="circle">1</span>
+			<label>of</label>
+			<span class="circle2">5</span>
+		</li>
+	</ul>
 	</div>
 </header>
 <section>
 	<ul>
 		<li>
-			<label id="questions">Questions</label>
-			<span class="circle">1/5</span>
-		</li>
-		<li>
 			<label id="playerName">Player Name</label>
-			<i class="fa fa-user fa-3x circle" aria-hidden="true"></i>
 		</li>
 	</ul>
-	<!-- <div class="circle">1/5</div>
-	<div id="questions">Questions</div>
-	<div class="circle player"><i class="fa fa-user fa-3x" aria-hidden="true"></i></div> -->
 </section>
-<div class="triviaQuestion"><!-- What is Dell Curry's first name? --></div>
+<div>
+	<h1 id="result">Correct Answer</h1>
+</div>
+<div class="triviaQuestion"></div>
 <ol class="answer">
 </ol>
-<!-- <div class="triviaQuestion">Who is the franchise leading scorer?</div>
-<div class="triviaQuestion">Who is the franchise leader in assist</div>
-<div class="triviaQuestion">First overrall pick in the 1991 NBA Draft?</div>
-<div class="triviaQuestion">Who has the only retired Jersey in Franchise history></div>
-<button>Submit Answer</button> -->
-
+<div id="newGameButton">Begin New Game</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
