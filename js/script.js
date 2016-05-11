@@ -1,5 +1,7 @@
+var nameOfUser;
 var count;
 var correctAnswer;
+var answer;
 var trivia=[
 	{
 		question:"1. What is Dell Curry's first name?",
@@ -42,8 +44,8 @@ var trivia=[
 	 	]
 	 },
 	 {
-	 	question:"Founding Year of the Charlotte Hornets?",
-	 	answer:"1996",
+	 	question:"5. Founding Year of the Charlotte Hornets?",
+	 	answer:"1988",
 	 	choices: [
 	 		'1992',
 	 		'1988',
@@ -67,22 +69,35 @@ $(document).ready(function(){
 
     //Get user name
   function userName(){
-    	var nameOfUser = $('#userName').val();
-    	console.log("Name of Current Player is: " + nameOfUser);
+    	nameOfUser = $('#userName').val();
+    	$('#userName').val("");
     	$("#playerName").text("Player Name: "+ nameOfUser);
   }
 
-  // checkAnswer function
-  function checkAnswer(questionNumber){
-    if ($(this).text()==trivia[questionNumber].answer) {
-     	$("span.circle").text("2/5");
-     	correctAnswer++;
-     	console.log(correctAnswer);
-    }
-    else{
-    	$("span.circle").text("2/5");
-    	console.log(correctAnswer);
-    }
+  // checkAnswer function answer is the user selected answer
+  // count is the question the user is on.
+  function checkAnswer(answer,count){
+    //CheckAnswer
+      if (answer==trivia[count].answer) {
+      	//Update Correct Answer Count
+       	correctAnswer++;
+       	//CSS Updates
+       	$(".triviaQuestion").text("Correct Answer").animate({height: "20px"}, 500);
+       	$(".triviaQuestion").css("color", "white").animate({height: "20px"}, 500);
+       	$(".triviaQuestion").css("background","none");
+       	$(".triviaQuestion").css("background-color","green");
+       	$("#result").text("Correct Answers: "+correctAnswer+"/5");
+       	$("#result").css("display","block");
+      }
+      else{
+      	//CSS Updates
+      	$(".triviaQuestion").text("Wrong Answer").animate({height: "20px"}, 500);
+       	$(".triviaQuestion").css("color", "white").animate({height: "20px"}, 500);
+       	$(".triviaQuestion").css("background","none");
+       	$(".triviaQuestion").css("background-color","red");
+       	$("#result").text("Correct Answers: "+correctAnswer+"/5");
+       	$("#result").css("display","block");
+      }
   }
 
   //Start New Game
@@ -100,36 +115,20 @@ $(document).ready(function(){
    	$(".triviaQuestion").text(trivia[count].question);
    	jQuery.each( trivia[count].choices, function( i, val ) {
      	$(".answer").append("<li>" + val + "</li>")
-      console.log("Choices " + val + "." );
     });
 
    	$( ".answer li" ).click(function() {
       $( ".answer li" ).slideUp();
-      console.log( $(this).text());
-      //CheckAnswer
-      if ($(this).text()==trivia[count].answer) {
-       	correctAnswer++;
-       	console.log("User has " + correctAnswer +" Correct Answers");
-       	$(".triviaQuestion").text("Correct Answer").animate({height: "20px"}, 500);
-       	$(".triviaQuestion").css("color", "white").animate({height: "20px"}, 500);
-       	$(".triviaQuestion").css("background","none");
-       	$(".triviaQuestion").css("background-color","green");
-       	$("#result").text("Correct Answers: "+correctAnswer+"/5");
-       	$("#result").css("display","block");
-       	$(".answer li").remove();
-      }
-      else{
-      	console.log("User has " + correctAnswer +" Correct Answers");
-      	$(".triviaQuestion").text("Wrong Answer").animate({height: "20px"}, 500);
-       	$(".triviaQuestion").css("color", "white").animate({height: "20px"}, 500);
-       	$(".triviaQuestion").css("background","none");
-       	$(".triviaQuestion").css("background-color","red");
-       	$("#result").text("Correct Answers: "+correctAnswer+"/5");
-       	$("#result").css("display","block");
-      }
+      answer = $(this).text();
+      checkAnswer(answer,count);
       count++;
       questionNumber++;
-      if (questionNumber==6) {
+      gameOver();
+    });
+  }
+  //Check to see if user has answer all questions
+  function gameOver(){
+  	if (questionNumber==6) {
         setTimeout(function(){
          	$("#newGameButton").css("display", "block");
          	$(".triviaQuestion").css("display", "none");
@@ -150,6 +149,5 @@ $(document).ready(function(){
           $("span.circle").text(questionNumber);
       	}, 2500);
       }
-    });
   }
 });
